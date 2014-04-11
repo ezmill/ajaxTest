@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="ajaxTest.css">
+</head>
+<body>
+<h1 id="ajaxClick">Click Me</h1>
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+$.getScript("https://raw.github.com/HubSpot/pace/v0.5.1/pace.min.js")
+var ajaxClick = document.getElementById("ajaxClick");
+// ajaxClick.onclick = function(){
+// 	var xhr = new XMLHttpRequest();
+// 	xhr.onreadystatechange = function(){
+//   //readyState 4 means complete
+//   if(xhr.readyState == 4){
+//     //check error codes
+//     if((xhr.status >= 200 && xhr.status <= 300) || xhr.status == 304){ 
+//       ajaxClick.innerHTML = xhr.responseText;
+//     } else{
+//       alert("Request was unsuccessful: " + xhr.status);
+//     }
+//   }
+// };
+
+$('#ajaxClick').click(function(){
+	$.get("load.html",function(data){
+		$( "h1" ).html( data );
+	});
+});
+// xhr.open("get", "load.html",true );
+// xhr.send(null);
+//xhr.abort() will cancel the request
+// var allHeaders = xhr.getAllResponseHeaders();
+// console.log(allHeaders);
+
+
+//}
+</script>
+
+</body>
+</html>
